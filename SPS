@@ -1,0 +1,42 @@
+package com.company;
+import java.util.Scanner;
+import java.util.Random;
+public class RPS {
+    public static void main(String args[]) {
+        System.out.println("press 0 for Stone");
+        System.out.println("press 1 for Paper");
+        System.out.println("press 2 for Scissor");
+        Scanner sc =new Scanner(System.in);
+        Random ran=new Random();
+        int a=0,b=0,c=0;
+        for(int i=0;i<3;i++) {
+
+            System.out.println("Your Turn press key ");
+            int n = sc.nextInt();
+            System.out.println("System Turn");
+            int m = ran.nextInt(3);
+            System.out.println("system selects " + m);
+            if (m == n) {
+                //System.out.println("Match Tie");
+                a=a+1;
+            } else if (n == 1 && m == 0 || n == 2 && m == 1 || n == 0 && m == 2) {
+                //System.out.println("You win");
+                b=b+1;
+            } else {
+                //System.out.println("system Wins");
+                c=c+1;
+            }
+        }
+        if(a==3 || a==b && b==c || a>b && a>c){
+            System.out.println("Match Tie");
+        }
+        else if(b>c){
+            System.out.println("You Wins");
+        }
+        else{
+            System.out.println("system Wins");
+        }
+    }
+
+}
+
